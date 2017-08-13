@@ -27,25 +27,18 @@ if (parseFloat(susp)+parseFloat(ausent)+parseFloat(art)==0) {
 var presentrec= parseFloat(present);
 } else { var presentrec= 0;}
 
-var hrextra=parseFloat(basic)/25*parseFloat(extra);
-var haberes=parseFloat(basic)+parseFloat(present);
-var descuentos=parseFloat(haberes)/100*16;
 var valorextra=(((parseFloat(basic)+(parseFloat(basic)/100*parseFloat(antig)))+parseFloat(present))/100*0.75)*extra;
-var enmano=parseFloat(haberes)-parseFloat(descuentos)+parseFloat(viatic);
 var antigrec=parseFloat(basic)/100*parseFloat(antig);
 var feriarec=((parseFloat(basic)+(parseFloat(present)/100*parseFloat(antig)))+parseFloat(present))/25*parseFloat(feria);
 
+var haberesrec= parseFloat(valorextra)+parseFloat(antigrec)+parseFloat(feriarec)+parseFloat(basic)+parseFloat(present);
+var descuentos=parseFloat(haberesrec)/100*16;
+var enmano=parseFloat(haberesrec)-parseFloat(descuentos)+parseFloat(viatic);
 
 
 
  document.getElementById("basic2").innerHTML=
-'<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#eeeeee;">'+
-'<tr><td colspan="2"><center>ACUERDO VIGENTE</center></td></tr>'+
-'<tr><td width="150px">Basico=</td><td>'+ parseFloat(basic) +'</td></tr>'+
-'<tr><td>Presentismo=</td><td>'+ parseFloat(present) +'</td></tr>'+
-'<tr><td>Viatico=</td><td>'+ parseFloat(viatic) +'</td></tr>'+
-'<tr><td></td><td></td></tr>'+
-'</table>'+
+
 '<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#000000;color:#fff;">'+
 '<tr><td width="150px" align="center" colspan="2"><center><b>EN MANO= $'+ parseFloat(enmano) +'</b></center></td></tr>'+
 '</table>'+
@@ -53,7 +46,7 @@ var feriarec=((parseFloat(basic)+(parseFloat(present)/100*parseFloat(antig)))+pa
 '<tr><td width="150px">VIATICOS=</td><td>$'+ parseFloat(viatic) +'</td></tr>'+
 '</table>'+
 '<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#93B978">'+
-'<tr><td width="150px">HABERES=</td><td>$'+ parseFloat(haberes) +'</td></tr>'+
+'<tr><td width="150px">HABERES=</td><td>$'+ parseFloat(haberesrec) +'</td></tr>'+
 '</table>'+
 '<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#D8EAD2">'+
 '<tr><td width="150px">Basico</td><td>1</td><td>$'+ parseFloat(basicrec) +'</td></tr>'+
@@ -91,7 +84,7 @@ border:0px;
 <div id="datos">
 <p align="center">Acuerdo Vigente</p>
 <form action="">
-<table border="" cellspacing="0" cellpadding="0" align="center">
+<table border="1" cellspacing="0" cellpadding="0" align="center" width="300px">
 
 <tr>
   <td>Basico</td>
@@ -110,7 +103,7 @@ border:0px;
 
 </table>
 <p align="center">Datos de Este Mes</p>
-<table border="1" cellspacing="0" cellpadding="0" align="center">
+<table border="1" cellspacing="0" cellpadding="0" align="center" width="300px">
 
 <tr>
   <td>Antiguedad</td>
@@ -134,7 +127,7 @@ border:0px;
 
 </table>
 <p align="center">Dias no trabajados</p>
-<table border="1" cellspacing="0" cellpadding="0" align="center">
+<table border="1" cellspacing="0" cellpadding="0" align="center" width="300px">
 
 <tr>
   <td>Por vacaciones</td>
