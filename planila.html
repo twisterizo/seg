@@ -1,7 +1,169 @@
-<html>
-      <head><title>popo</title></head>
-<body>
-      <h1>Hola</h1>
-  a<b>s</b>d
-  </boyd>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+ 
+	<script type="text/javascript">
+function hacer(){
+    var basic = document.getElementById("basic").value;  
+    var present = document.getElementById("present").value;  
+    var viatic = document.getElementById("viatic").value;  
+    var antig = document.getElementById("antig").value;  
+    var extra = document.getElementById("extra").value;  
+    var noct = document.getElementById("noct").value;    
+    var feria = document.getElementById("feria").value;    
+
+    var vacas = document.getElementById("vacas").value;    
+    var susp = document.getElementById("susp").value;    
+    var ausent = document.getElementById("ausent").value;    
+    var art = document.getElementById("art").value;    
+if (parseFloat(vacas)+parseFloat(susp)+parseFloat(ausent)+parseFloat(art)==0)
+{var basicrec= parseFloat(basic);}
+else
+{var basicrec= parseFloat(basic)/25*(25-parseFloat(vacas)-parseFloat(susp)-parseFloat(ausent)-parseFloat(art));}
+
+
+if (parseFloat(susp)+parseFloat(ausent)+parseFloat(art)==0) {
+var presentrec= parseFloat(present);
+} else { var presentrec= 0;}
+
+var hrextra=parseFloat(basic)/25*parseFloat(extra);
+var haberes=parseFloat(basic)+parseFloat(present);
+var descuentos=parseFloat(haberes)/100*16;
+var valorextra=(((parseFloat(basic)+(parseFloat(basic)/100*parseFloat(antig)))+parseFloat(present))/100*0.75)*extra;
+var enmano=parseFloat(haberes)-parseFloat(descuentos)+parseFloat(viatic);
+var antigrec=parseFloat(basic)/100*parseFloat(antig);
+var feriarec=((parseFloat(basic)+(parseFloat(present)/100*parseFloat(antig)))+parseFloat(present))/25*parseFloat(feria);
+
+
+
+
+ document.getElementById("basic2").innerHTML=
+'<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#eeeeee;">'+
+'<tr><td colspan="2"><center>ACUERDO VIGENTE</center></td></tr>'+
+'<tr><td width="150px">Basico=</td><td>'+ parseFloat(basic) +'</td></tr>'+
+'<tr><td>Presentismo=</td><td>'+ parseFloat(present) +'</td></tr>'+
+'<tr><td>Viatico=</td><td>'+ parseFloat(viatic) +'</td></tr>'+
+'<tr><td></td><td></td></tr>'+
+'</table>'+
+'<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-
+
+color:#000000;color:#fff;">'+
+'<tr><td width="150px" align="center" colspan="2"><center><b>EN MANO= $'+ parseFloat(enmano) +'</b></center></td></tr>'+
+'</table>'+
+'<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#9CC2BF">'+
+'<tr><td width="150px">VIATICOS=</td><td>$'+ parseFloat(viatic) +'</td></tr>'+
+'</table>'+
+'<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#93B978">'+
+'<tr><td width="150px">HABERES=</td><td>$'+ parseFloat(haberes) +'</td></tr>'+
+'</table>'+
+'<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#D8EAD2">'+
+'<tr><td width="150px">Basico</td><td>1</td><td>$'+ parseFloat(basicrec) +'</td></tr>'+
+'<tr><td width="150px">Presentismo</td><td>-</td><td>$'+ parseFloat(presentrec) +'</td></tr>'+
+'<tr><td width="150px">Antiguedad</td><td>'+ parseFloat(antig) +'</td><td>$'+ parseFloat(antigrec) +'</td></tr>'+
+'<tr><td width="150px">Feriado NAc</td><td>'+ parseFloat(feria) +'</td><td>$'+ parseFloat(feriarec) +'</td></tr>'+
+'<tr><td width="150px">Hr Extra</td><td>'+ parseFloat(extra) +'</td><td>$'+ parseFloat(valorextra) +'</td></tr>'+
+'</table>'+
+'<table border="1" cellpadding="0" cellspacing="0" width="300px" align="center" style="background-color:#6C69B5">'+
+'<tr><td width="150px">DESCUENTOS=</td><td>$'+ parseFloat(descuentos) +'</td></tr>'+
+'</table>'
+
+ return isNaN( n ) ? 0 : n; 
+;}
+	</script>
+
+<style>
+html{
+margin:0px;
+font-family:arial;
+font-size: 12px;
+}
+p {
+margin:0px;
+}
+
+table{
+border:0px;
+}
+</style>
+</head>
+ 
+<body onkeyup="hacer()">
+
+<div id="datos">
+<p align="center">Acuerdo Vigente</p>
+<form action="">
+<table border="" cellspacing="0" cellpadding="0" align="center">
+
+<tr>
+  <td>Basico</td>
+            <td><input type="text" size="15px" Value="10975" id="basic"></input></td>
+</tr>
+
+<tr>
+  <td>Presentismo</td>
+            <td><input type="text" size="15px" Value="1170" id="present"></input></td>
+</tr>
+
+<tr>
+  <td>Viatico</td>
+             <td><input type="text" size="15px" Value="4680" id="viatic"></input></td>
+</tr>
+
+</table>
+<p align="center">Datos de Este Mes</p>
+<table border="1" cellspacing="0" cellpadding="0" align="center">
+
+<tr>
+  <td>Antiguedad</td>
+            <td><input type="text" size="15px" value="0" id="antig"></input></td>
+</tr>
+
+<tr>
+  <td>Hs Extra</td>
+            <td><input type="text" size="15px" value="0" id="extra"></input></td>
+</tr>
+
+<tr>
+  <td>Hs Nocturnas</td>
+             <td><input type="text" size="15px" value="0" id="noct"></input></td>
+</tr>
+
+<tr>
+  <td>Feriados</td>
+             <td><input type="text" size="15px" value="0" id="feria"></input></td>
+</tr>
+
+</table>
+<p align="center">Dias no trabajados</p>
+<table border="1" cellspacing="0" cellpadding="0" align="center">
+
+<tr>
+  <td>Por vacaciones</td>
+            <td><input type="text" size="15px" value="0" id="vacas"></input></td>
+</tr>
+
+<tr>
+  <td>Suspension</td>
+            <td><input type="text" size="15px" value="0" id="susp"></input></td>
+</tr>
+
+<tr>
+  <td>Ausentismo</td>
+             <td><input type="text" size="15px" value="0" id="ausent"></input></td>
+</tr>
+
+<tr>
+  <td>ART / Medico</td>
+             <td><input type="text" size="15px" value="0" id="art"></input></td>
+</tr>
+
+</table>
+</form>
+
+</div>
+<hr>
+<div  id="basic2"></div>
+
+</body>
 </html>
